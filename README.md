@@ -20,13 +20,27 @@ Credentials and region is specified through any means available by AWS .net sdk,
        <add key="AWSRegion" value="eu-west-1" />
    </appSettings>
 
-If you'd like to debug this app locally, see the [MockECSInstanceMetaData](https://github.com/camitz/MockEC2InstanceMetaData) project.
+or using a credentials file:
 
+   <appSettings>
+       <add key="AWSRegion" value="eu-west-1" />
+       <add key="AWSProfileName" value="simpletask"/>
+       <add key="AWSProfilesLocation" value="C:\aws_service_credentials\credentials"/>
+   </appSettings>
+
+
+##Command line
+
+Just do 
+
+    SpotStop2SNS.exe -Start
 
 ##Windows binaries and installer
 
 An installer can be downloaded [here](https://github.com/camitz/EC2SpotStop2SNS/releases/latest) which will install the application as a windows service.
 
-##Related blog post
+##Related 
 
 [Ec2spotstop2sns](http://blog.simpletask.se/post/ec2spotstop2sns) on Cosmik Debris.
+
+If you'd like to debug this app locally, see the [MockECSInstanceMetaData](https://github.com/camitz/MockEC2InstanceMetaData) project.
