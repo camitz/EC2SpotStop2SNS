@@ -59,8 +59,12 @@ namespace SpotStop2SNS
 
         public void Tick(object sender, EventArgs args)
         {
+            
             lock (_lock)
             {
+                if(!_timer.Enabled)
+                    return;
+
                 Log.Debug("Tick.");
 
                 string s;

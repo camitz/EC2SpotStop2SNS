@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ServiceProcess;
 using System.Threading;
-using System.Diagnostics;
 using log4net;
 
 namespace SpotStop2SNS
@@ -28,19 +27,18 @@ namespace SpotStop2SNS
             }
             else
             {
-                ServiceBase[] ServicesToRun;
+                //int p = 0;
+                //while (p==0)
+                //    Thread.Sleep(3000);
+
+                Log.Debug("Starting as service.");
                 try
                 {
-                    ServicesToRun = new ServiceBase[] 
-			            { 
-     				            new SpotStop2SNSService()
-			            };
-
-                    ServiceBase.Run(ServicesToRun);
+                    ServiceBase.Run(new ServiceBase[] { new SpotStop2SNSService() });
                 }
                 catch (Exception e)
                 {
-                    Trace.WriteLine(e);
+                    Log.Debug("Exception.", e);
                 }
             }
         }
