@@ -25,4 +25,4 @@ If you'd like to debug this app locally, see the [MockECSInstanceMetaData](https
 
 ##Windows binaries and installer
 
-An installer can be downloaded here which will install the application as a windows service.
+An installer can be downloaded [here](https://github.com/camitz/EC2SpotStop2SNS/releases/latest) which will install the application as a windows service.
