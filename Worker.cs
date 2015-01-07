@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Timers;
@@ -16,7 +17,7 @@ namespace SpotStop2SNS
 
         private const double InitialDelay = 1000;
         private const double ShortInterval = 5000;
-        private string Topic = "SpotInstanceTermination";
+        private string Topic = ConfigurationManager.AppSettings["Topic"] ?? "SpotInstanceTermination";
 
         private bool _marked = false;
 
@@ -33,7 +34,7 @@ namespace SpotStop2SNS
             Topic = string.Format(Topic, AWSConfigs.AWSRegion);
 
             var topic = client.ListTopics().Topics.FirstOrDefault(x => x.TopicArn.Contains(Topic));
-            if (topic==null)
+            if (topic == null)
             {
                 Log.Debug("Creating topic " + Topic);
 
